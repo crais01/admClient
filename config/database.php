@@ -9,7 +9,6 @@ if ($cnx->connect_error) {
     die("Connection failed: " . $cnx->connect_error);
 }
 
-echo "estoy en la conexion<br>";
 /*$sql = "create database baseprueba";
 
 if (mysqli_query($cnx,$sql)) {

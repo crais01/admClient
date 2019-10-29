@@ -1,7 +1,44 @@
 <?php include('../header.php'); ?>
 <form id="userform" action="<?=BASE_URL?>controller/c_createUser.php" method="post">
 <div class="container">
-
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="name" class="h5">Nombre</label>
+                <input type="text" id="name" name="name" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="form-group">
+            <label for="rut" class="h5">Rut</label>
+                <div class="input-group">
+                    <input type="text" id="rut" name="rut" style="width:200px;" class="form-control"/>
+                    <input type="text" id="dv" name="dv" style="width:5px;" class="form-control"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="address" class="h5">Direccion</label>
+                <input type="text" id="address" name="address" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="codephone" class="h5">Tipo Telefono</label>
+                <select name="codephone" id="codephone" class="form-control">
+                    <option value="52">Telefono Fijo</option>
+                    <option value="56">Telefono Movil</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="phone" class="h5">Numero</label>
+                <input type="text" id="phone" name="phone" class="form-control"/>
+            </div>
+        </div>
+    </div><br>
     <div class="row">        
         <div class="col-6">
             <div class="form-group">
@@ -31,35 +68,6 @@
                     <option value="0">Activo</option>
                     <option value="1">Inactivo</option>
                 </select>
-            </div>
-        </div>
-    </div><br>
-    <div class="row">
-        <div class="col-6">
-            <div class="form-group">
-                <label for="name" class="h5">Nombre</label>
-                <input type="text" id="name" name="name" class="form-control"/>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="form-group">
-                <label for="address" class="h5">Direccion</label>
-                <input type="text" id="address" name="address" class="form-control"/>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="form-group">
-                <label for="codephone" class="h5">Tipo Telefono</label>
-                <select name="codephone" id="codephone" class="form-control">
-                    <option value="52">Telefono Fijo</option>
-                    <option value="56">Telefono Movil</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="form-group">
-                <label for="phone" class="h5">Numero</label>
-                <input type="text" id="phone" name="phone" class="form-control"/>
             </div>
         </div>
     </div><br>
