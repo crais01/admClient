@@ -1,5 +1,5 @@
 <?php include('../header.php'); ?>
-<form id="userform" action="#" method="post">
+<form id="userform" action="<?=BASE_URL?>controller/c_createUser.php" method="post">
 <div class="container">
 
     <div class="row">        
@@ -58,7 +58,7 @@
         </div>
         <div class="col-6">
             <div class="form-group">
-                <label for="phono" class="h5">Numero</label>
+                <label for="phone" class="h5">Numero</label>
                 <input type="text" id="phone" name="phone" class="form-control"/>
             </div>
         </div>
@@ -73,7 +73,7 @@
     </div><br>
     <div class="row">
         <div class="col">
-            <input type="button" value="crear usuario" class="btn btn-success" />
+            <input type="submit" value="crear usuario" class="btn btn-success" />
         </div>
     </div>
 </div>

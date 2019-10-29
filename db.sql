@@ -3,6 +3,7 @@ create table user(
     alias varchar(20) not null, 
     password varchar(50) not null,
     user_type char(1) not null,
+    status char(1) not null,
     primary key(id_user)
 );
 
