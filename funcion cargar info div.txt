@@ -1,0 +1,19 @@
+ $(document).ready(function() {
+				$("#send").click(function(event) {
+				//alert("aqui");
+                    var rutF = document.datos.rut.value;
+                    var dvF = document.datos.dv.value;
+                    var codMuniF = document.datos.idMuni.value;
+					
+					/*alert("rutF : "+rutF);
+					alert("dvF : "+dvF);
+					alert("codMuniF : "+codMuniF);*/
+
+					$("#layout").load("buscarRegistro_new.asp",{rut:rutF, dv:dvF, codmuni:codMuniF}, function(response, status, xhr) {
+						  if (status == "error") {
+						    var msg = "Error!, algo ha sucedido: ";
+						    $("#layout").html(msg + xhr.status + " " + xhr.statusText);
+						  }
+						});
+				});
+			});	

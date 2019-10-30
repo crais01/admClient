@@ -1,6 +1,8 @@
+
 <?php include('../header.php'); ?>
-<form id="userform" action="<?=BASE_URL?>controller/c_createUser.php" method="post">
+<form id="userform" name="userform" action="<?=BASE_URL?>controller/c_createUser.php" method="post">
 <div class="container">
+<div id="contianerResult"></div>
     <div class="row">
         <div class="col-6">
             <div class="form-group">
@@ -12,8 +14,8 @@
             <div class="form-group">
             <label for="rut" class="h5">Rut</label>
                 <div class="input-group">
-                    <input type="text" id="rut" name="rut" style="width:200px;" class="form-control"/>
-                    <input type="text" id="dv" name="dv" style="width:5px;" class="form-control"/>
+                    <input type="text" id="rut" name="rut" maxlength="10" style="width:200px;" class="form-control" onblur="agregarCeros_onblur()"/>
+                    <input type="text" id="dv" name="dv" maxlength="1" style="width:5px;" class="form-control" onblur='return calcularDigitoVerificador()'/>
                 </div>
             </div>
         </div>
@@ -21,6 +23,12 @@
             <div class="form-group">
                 <label for="address" class="h5">Direccion</label>
                 <input type="text" id="address" name="address" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="emial" class="h5">Correo</label>
+                <input type="text" id="email" name="email" class="form-control"/>
             </div>
         </div>
         <div class="col-6">
@@ -87,3 +95,23 @@
 </div>
 </form>
 <?php include('../footer.php'); ?>
+<script>
+function agregarCeros_onblur() {
+    var r = document.userform.rut.value;
+	var a = 9 - document.userform.rut.value.length;
+	for (var i=0;i< a;i++){
+         r = "0" + r;
+    }
+    document.userform.rut.value = r;
+	calcularDigitoVerificador()
+                          
+}
+function calcularDigitoVerificador(){
+	var srut = document.getElementById('rut').value;
+	if (srut!=""){
+		var M=0,S=1;var T = document.getElementById('rut').value;for(;T;T=Math.floor(T/10))
+		S=(S+T%10*(9-M++%6))%11;document.getElementById('dv').value=S?S-1:'k';
+	}
+			
+}
+</script>

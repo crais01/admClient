@@ -1,13 +1,12 @@
 create table client(
-    id_client int not null auto_increment,
-    rut varchar(10) not null,
+    rut varchar(11) not null,
     name varchar(40) not null,
     address varchar(50) not null,
     phone int not null,
-    code varchar(3),
+    code varchar(3) not null,
+    email varchar(30) not null,
     date varchar(20),
-    id_user int,
-    primary key(id_client)
+    primary key(rut)
 );
 
 create table user(
@@ -16,15 +15,15 @@ create table user(
     password varchar(50) not null,
     user_type char(1) not null,
     status char(1) not null,
-    id_client int not null,
+    rut_client varchar(11) not null,
     primary key(id_user),
-    FOREIGN key(id_client)references client(id_client)
+    FOREIGN key(rut_client)references client(rut)
 );
 
-create table baseClient(
+create table baseclient(
     id_database int not null,
-    id_user int not null, 
+    rut_client varchar(11) not null, 
     dbname varchar(20)not null,
     primary key(id_database),
-    foreign key(id_user)references user(id_user)
+    foreign key(rut_client)references client(rut)
 )
