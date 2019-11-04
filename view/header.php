@@ -9,7 +9,7 @@
 </head>
 <body>
 <?php
- $url = 'http://localhost:8081/proyecto/admClient/'; 
+ $url = 'http://localhost/admClient/'; 
  define('BASE_URL',$url ); 
  ?>
  header

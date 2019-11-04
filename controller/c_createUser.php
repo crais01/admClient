@@ -12,6 +12,12 @@ $address = $_POST['address'];
 $email = $_POST['email'];
 $base = $_POST['base'];
 
+function aa2(){
+	echo "aaaawww";
+	return;
+}
+
+
 if(empty($rut) || empty($_POST['dv'])){
     echo "debe ingresar rut";
     return;

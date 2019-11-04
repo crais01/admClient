@@ -1,5 +1,5 @@
-
 <?php include('../header.php'); ?>
+
 <form id="userform" name="userform" action="<?=BASE_URL?>controller/c_createUser.php" method="post">
 <div class="container">
 <div id="contianerResult"></div>
@@ -89,13 +89,28 @@
     </div><br>
     <div class="row">
         <div class="col">
-            <input type="submit" value="crear usuario" class="btn btn-success" />
+            <input type="submit" id="send" name="send" value="crear usuario" class="btn btn-success" />
         </div>
     </div>
 </div>
 </form>
 <?php include('../footer.php'); ?>
 <script>
+$(document).ready(function() {
+	$("#send").click(function(event) {
+		//alert("aqui");
+        var rutF = document.userform.rut.value;
+        var dvF = document.userform.dv.value;
+
+		$("#contianerResult").load("../../../controller/c_createUser.php",{rut:rutF, dv:dvF}, function(response, status, xhr) {
+			if (status == "error") {
+				var msg = "Error!, algo ha sucedido: ";
+				$("#layout").html(msg + xhr.status + " " + xhr.statusText);
+			}
+		});
+	});
+});	
+
 function agregarCeros_onblur() {
     var r = document.userform.rut.value;
 	var a = 9 - document.userform.rut.value.length;
@@ -115,3 +130,7 @@ function calcularDigitoVerificador(){
 			
 }
 </script>
+<?php include('../../controller/c_createUser.php'); ?>
+<?php
+aa2();
+?>
