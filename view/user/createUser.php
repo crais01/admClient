@@ -89,7 +89,7 @@
     </div><br>
     <div class="row">
         <div class="col">
-            <input type="submit" id="send" name="send" value="crear usuario" class="btn btn-success" />
+            <input type="button" id="send" name="send" value="crear usuario" class="btn btn-success" />
         </div>
     </div>
 </div>
@@ -98,11 +98,11 @@
 <script>
 $(document).ready(function() {
 	$("#send").click(function(event) {
-		//alert("aqui");
+		alert("aqui");
         var rutF = document.userform.rut.value;
         var dvF = document.userform.dv.value;
 
-		$("#contianerResult").load("../../../controller/c_createUser.php",{rut:rutF, dv:dvF}, function(response, status, xhr) {
+		$("#contianerResult").load("../../controller/c_createUser.php",{rut:rutF, dv:dvF}, function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Error!, algo ha sucedido: ";
 				$("#layout").html(msg + xhr.status + " " + xhr.statusText);
@@ -130,7 +130,3 @@ function calcularDigitoVerificador(){
 			
 }
 </script>
-<?php include('../../controller/c_createUser.php'); ?>
-<?php
-aa2();
-?>

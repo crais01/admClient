@@ -1,5 +1,6 @@
 <?php
 include('../model/m_user.php');
+error_reporting(E_ALL ^ E_NOTICE);
 $user = $_POST['user'];
 $rut = $_POST['rut']."-".$_POST['dv'];
 $password = $_POST['password'];
@@ -11,11 +12,6 @@ $phone = $_POST['phone'];
 $address = $_POST['address'];
 $email = $_POST['email'];
 $base = $_POST['base'];
-
-function aa2(){
-	echo "aaaawww";
-	return;
-}
 
 
 if(empty($rut) || empty($_POST['dv'])){
