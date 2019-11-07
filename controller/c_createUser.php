@@ -38,12 +38,12 @@ if(empty($address)){
     echo "debe ingresar la direccion del cliente";
     return;
 }
-if(empty($base)){
-    echo "debe ingresar nombre para crear la base de datos";
-    return;
-}
 if(empty($email)){
     echo "debe ingresar un correo electronico valido";
+    return;
+}
+if(empty($base)){
+    echo "debe ingresar nombre para crear la base de datos";
     return;
 }
 $createClient = createClient($rut,$name,$address,$phone,$codephone,$email);

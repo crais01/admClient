@@ -101,8 +101,18 @@ $(document).ready(function() {
 		alert("aqui");
         var rutF = document.userform.rut.value;
         var dvF = document.userform.dv.value;
+        var userF = document.userform.user.value;
+        var usertypeF = document.userform.usertype.value;
+        var passwordF = document.userform.password.value;
+        var statusF = document.userform.status.value;
+        var nameF = document.userform.name.value;
+        var codephoneF = document.userform.codephone.value;
+        var phoneF = document.userform.phone.value;
+        var addressF = document.userform.address.value;
+        var emailF = document.userform.email.value;
+        var baseF = document.userform.base.value;
 
-		$("#contianerResult").load("../../controller/c_createUser.php",{rut:rutF, dv:dvF}, function(response, status, xhr) {
+		$("#contianerResult").load("../../controller/c_createUser.php",{rut:rutF, dv:dvF,user:userF,usertype:usertypeF,password:passwordF,status:statusF,name:nameF,codephone:codephoneF,phone:phoneF,address:addressF,email:emailF,base:baseF}, function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Error!, algo ha sucedido: ";
 				$("#layout").html(msg + xhr.status + " " + xhr.statusText);
