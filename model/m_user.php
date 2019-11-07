@@ -11,6 +11,7 @@ function createUser($user,$password,$usertype,$status,$rut){
     }else{
         return 'problemas para crear la cuenta'.die(mysqli_erros());
     }
+    $cnx->close();
 }
 function createClient($rut,$name,$address,$phone,$codephone,$email){
     global $cnx;
@@ -23,6 +24,7 @@ function createClient($rut,$name,$address,$phone,$codephone,$email){
     }else{
         return 'problemas paracrear cliente'.die(mysqli_erros());
     }
+    $cnx->close();
 }
 function createDatabase($rut,$base){
     global $cnx;
@@ -35,7 +37,9 @@ function createDatabase($rut,$base){
         return 'Base creado exitosamente';
     }else{
         return 'problemas paracrear base'.die(mysqli_erros());
+        
     }
+    $cnx->close();
 }
 function updateClient(){}
 function updateUser(){}
@@ -45,7 +49,19 @@ function createClientDatabase($base){
     global $cnx;
     $sql = "create database ".$base;
     $cnx->query($sql);
-    
+    $cnx->close();
+
+    $dbnameCLient = $base;
+    $dbuserClient = "root";
+    $dbpasswordClient = "caschile";
+    $dbhostClient = "localhost";
+
+    $cnxClient = new mysqli($dbhostClient, $dbuserClient, $dbpasswordClient, $dbnameCLient);
+    $sql = "create table prueba(
+        id int
+    )";
+    $cnxClient->query($sql);
+    $cnxClient->close();
 
 
 }
