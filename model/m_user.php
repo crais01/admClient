@@ -31,6 +31,7 @@ function createDatabase($rut,$base){
     $sql .= "values('$rut','$base')";
 
     if($cnx->query($sql) === true){
+        createClientDatabase($base);
         return 'Base creado exitosamente';
     }else{
         return 'problemas paracrear base'.die(mysqli_erros());
@@ -40,4 +41,12 @@ function updateClient(){}
 function updateUser(){}
 function disableUser(){}
 function disableClient(){}
+function createClientDatabase($base){
+    global $cnx;
+    $sql = "create database ".$base;
+    $cnx->query($sql);
+    
+
+
+}
 ?>
