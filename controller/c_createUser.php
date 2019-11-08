@@ -50,7 +50,31 @@ $createClient = createClient($rut,$name,$address,$phone,$codephone,$email);
 $createUser = createUser($user,$password,$usertype,$status,$rut);
 $createBase = createDatabase($rut,$base);
 
-echo $createClient;
-echo "<br>".$createUser;
-echo "<br>".$createBase;
+if($createClient == 1){
+    echo "<div class='alert alert-success'>";
+    echo "La informacion de cliente fue ingresada correctamente";
+    echo "</div>";
+}else{
+    echo "<div class='alert alert-danger'>";
+    echo "Hubo problemas al realizar grabar la informacion de cliente";
+    echo "</div>";   
+}
+if($createUser == 1){
+    echo "<div class='alert alert-success'>";
+    echo "Cuenta de usuario administrador para el cliente se creo correctamente";
+    echo "</div>";
+}else{
+    echo "<div class='alert alert-danger'>";
+    echo "Problemas para crear la cuenta de usuario";
+    echo "</div>";
+}
+if($createBase == 1){
+    echo "<div class='alert alert-success'>";
+    echo "la base de datos del cliente se creo correctamente";
+    echo "</div>";
+}else{
+    echo "<div class='alert alert-danger'>";
+    echo "Problemas para crear base de datos";
+    echo "</div>";
+}
 ?>

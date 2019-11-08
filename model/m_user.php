@@ -7,9 +7,9 @@ function createUser($user,$password,$usertype,$status,$rut){
     $sql .= "values('$user','$password','$usertype','$status','$rut')";
 
     if($cnx->query($sql) === true){
-        return 'cuenta de usuario creada';
+        return 1;
     }else{
-        return 'problemas para crear la cuenta'.die(mysqli_erros());
+        return 0;
     }
     $cnx->close();
 }
@@ -20,9 +20,9 @@ function createClient($rut,$name,$address,$phone,$codephone,$email){
     $sql .= "values('$rut','$name','$address',$phone,'$codephone','$email','$fecha')";
 
     if($cnx->query($sql) === true){
-        return 'Cliente creado exitosamente';
+        return 1;
     }else{
-        return 'problemas paracrear cliente'.die(mysqli_erros());
+        return 0;
     }
     $cnx->close();
 }
@@ -33,10 +33,11 @@ function createDatabase($rut,$base){
     $sql .= "values('$rut','$base')";
 
     if($cnx->query($sql) === true){
-        createClientDatabase($base);
-        return 'Base creado exitosamente';
+        //createClientDatabase($base);
+        return 1;
     }else{
-        return 'problemas paracrear base'.die(mysqli_erros());
+        return 0;
+        //return 'problemas para crear base'.die(mysqli_erros());
         
     }
     $cnx->close();

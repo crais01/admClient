@@ -28,28 +28,28 @@
         <div class="col-6">
             <div class="form-group">
                 <label for="emial" class="h5">Correo</label>
-                <input type="text" id="email" name="email" class="form-control"/>
+                <input type="input" id="email" name="email" class="form-control" placeholder="correo@correo.cl"/>
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
                 <label for="codephone" class="h5">Tipo Telefono</label>
                 <select name="codephone" id="codephone" class="form-control">
-                    <option value="52">Telefono Fijo</option>
-                    <option value="56">Telefono Movil</option>
+                    <option value="562">Telefono Fijo(+562)</option>
+                    <option value="569">Telefono Movil(+569)</option>
                 </select>
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
                 <label for="phone" class="h5">Numero</label>
-                <input type="text" id="phone" name="phone" class="form-control"/>
+                <input type="number" id="phone" name="phone" class="form-control" maxlength="7" placeholder="1324567"/>
             </div>
         </div>
     </div><br>
     <div class="row">        
         <div class="col-6">
-            <div class="form-group">
+            <div class="form-group">                        
                 <label for="user" class="h5">Usuario</label>
                 <input type="text" id="user" name="user" class="form-control"/>
             </div>
