@@ -1,6 +1,6 @@
 <?php include('../header.php'); ?>
 
-<!--<div class="container">-->
+<div class="container">
    <table>
    <thead>
    <tr>
@@ -15,23 +15,19 @@
     <td>FECHA CREACION</td>
    </tr>
    </thead>
-   <tbody >
-    <tr id="contianerResult">
-    </tr>
+   <tbody id="contianerResult">
    </tbody>
    </table>
    
-<!--</div>-->
+</div>
 <?php include('../footer.php'); ?>
 <script>
 $(document).ready(function() {
-	//$("#send").click(function(event) {
 		$("#contianerResult").load("../../controller/c_listUser.php", function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Error!, algo ha sucedido: ";
 				$("#contianerResult").html(msg + xhr.status + " " + xhr.statusText);
 			}
 		});
-	//});
 });
 </script>

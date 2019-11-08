@@ -42,6 +42,20 @@ function createDatabase($rut,$base){
     }
     $cnx->close();
 }
+function listClient(){
+    global $cnx;
+    $sql = "select c.rut,c.name,c.address,c.code,c.phone,c.email,u.alias,u.password,b.dbname,c.date from admclient.client c ";
+    $sql .= "inner join admclient.user u on u.rut_client = c.rut ";
+    $sql .= "inner join admclient.baseclient b on b.rut_client = c.rut ";
+    $sql .= "where u.status = 0";
+
+    $result = $cnx->query($sql);
+    while($row = $result->fetch_array()){
+        $a[] = $row;
+    }
+
+    return $a;
+}
 function updateClient(){}
 function updateUser(){}
 function disableUser(){}
