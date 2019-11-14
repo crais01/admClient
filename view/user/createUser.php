@@ -112,6 +112,8 @@ $(document).ready(function() {
         var emailF = document.userform.email.value;
         var baseF = document.userform.base.value;
 
+        document.getElementById('contianerResult').innerHTML='';
+
 		$("#contianerResult").load("../../controller/c_createUser.php",{rut:rutF, dv:dvF,user:userF,usertype:usertypeF,password:passwordF,status:statusF,name:nameF,codephone:codephoneF,phone:phoneF,address:addressF,email:emailF,base:baseF}, function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Error!, algo ha sucedido: ";

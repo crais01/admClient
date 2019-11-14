@@ -16,6 +16,8 @@ echo "<td>".$row['alias']."</td>";
 echo "<td>".$row['password']."</td>";
 echo "<td>".$row['dbname']."</td>";
 echo "<td>".$row['date']."</td>";
+echo "<td>actualizar</td>";
+echo "<td>eliminar</td>";
 echo "</tr>";
 }
 
