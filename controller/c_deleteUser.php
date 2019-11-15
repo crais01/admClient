@@ -2,7 +2,7 @@
 include('../model/m_user.php');
 error_reporting(E_ALL ^ E_NOTICE);
 
-$listClient = listClient();
+$deleteClient = deleteClient();
 
 
 //var_dump($listClient);
