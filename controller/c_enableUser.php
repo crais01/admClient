@@ -1,12 +1,13 @@
 <?php
 include('../model/m_user.php');
+include('../model/m_database.php');
 error_reporting(E_ALL ^ E_NOTICE);
 
 //$listClient = listClient();
 
 $rut = $_POST['rut'];
 $deleteUser = enableUser($rut);
-$deleteBase = disableClientDatabase($rut);
+$deleteBase = enableClientDatabase($rut);
 
 if($deleteUser == 1 and  $deleteBase == 1){
     echo "<div class='alert alert-success'>";

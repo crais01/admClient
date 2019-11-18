@@ -23,7 +23,6 @@ if(is_null($listClient)){
     echo "<td><input type='button' id='delete' name='delete' value='Eliminar' /></td>";
     echo "</tr>";
     echo "<input type='hidden' id='rut' name='rut' value='".$row['rut']."' />";
-    echo "<input type='hidden' id='client' name='client' value='".$listClient."' />";
     }
 
 }
@@ -35,6 +34,7 @@ $(document).ready(function(){
   $("#delete").click(function(event) {
 		
       var rutF = document.getElementById("rut").value;
+      
      // alert(rutF);
       $("#container").load("../../controller/c_deleteUser.php",{rut:rutF}, function(response, status, xhr) {
          if (status == "error") {
@@ -47,10 +47,10 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $("#update").click(function(event) {
-		
-      var clientF = document.getElementById("client").value;;
-      alert(clientF);
-      $("#container").load("../../controller/c_updateUser.php",{client:clientF}, function(response, status, xhr) {
+
+      var clientF = <?php echo json_encode($listClient); ?>;
+      //alert(clientF);
+      $("#container").load("../../view/user/updateUser.php",{client:clientF}, function(response, status, xhr) {
          if (status == "error") {
             var msg = "Error!, algo ha sucedido: ";
             $("#container").html(msg + xhr.status + " " + xhr.statusText);

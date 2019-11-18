@@ -1,5 +1,6 @@
 <?php
 include('../model/m_user.php');
+include('../model/m_database.php');
 error_reporting(E_ALL ^ E_NOTICE);
 
 //$listClient = listClient();
