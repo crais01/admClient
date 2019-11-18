@@ -77,17 +77,13 @@ $(document).ready(function() {
 	$("#send").click(function(event) {
 		alert("aqui");
         var rutF = document.userform.rut.value;
-        var dvF = document.userform.dv.value;
         var userF = document.userform.user.value;
-        var usertypeF = document.userform.usertype.value;
         var passwordF = document.userform.password.value;
-        var statusF = document.userform.status.value;
         var nameF = document.userform.name.value;
-        var codephoneF = document.userform.codephone.value;
         var phoneF = document.userform.phone.value;
         var addressF = document.userform.address.value;
         var emailF = document.userform.email.value;
-        var baseF = document.userform.base.value;
+
 
         document.getElementById('contianerResult').innerHTML='';
 
