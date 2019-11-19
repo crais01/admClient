@@ -6,9 +6,9 @@ $user = $_POST['user'];
 $rut = $_POST['rut']."-".$_POST['dv'];
 $password = $_POST['password'];
 $usertype = $_POST['usertype'];
-$status = $_POST['status'];
+$state = $_POST['state'];
 $name = $_POST['name'];
-$codephone = $_POST['codephone'];
+$mobile = $_POST['mobile'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
 $email = $_POST['email'];
@@ -31,9 +31,13 @@ if(empty($name)){
     echo "debe ingresar el nombre del cliente";
     return;
 }
-if(empty($phone)){
-    echo "debe ingresar un numero de telefono";
+if(empty($phone) or empty($mobile)){
+    echo "debe ingresar numero fijo o celular";
     return;
+}elseif($phone == 562){
+    $phone = 0;
+}elseif($phone == 569){
+    $phone = 0;
 }
 if(empty($address)){
     echo "debe ingresar la direccion del cliente";
@@ -47,8 +51,8 @@ if(empty($base)){
     echo "debe ingresar nombre para crear la base de datos";
     return;
 }
-$createClient = createClient($rut,$name,$address,$phone,$codephone,$email);
-$createUser = createUser($user,$password,$usertype,$status,$rut);
+$createClient = createClient($rut,$name,$address,$phone,$mobile,$email);
+$createUser = createUser($user,$password,$usertype,$state,$rut);
 $createBase = createDatabase($rut,$base);
 
 if($createClient == 1){

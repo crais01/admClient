@@ -1,10 +1,10 @@
 <?php
 include('../config/database.php');
 
-function createUser($user,$password,$usertype,$status,$rut){
+function createUser($user,$password,$usertype,$state,$rut){
     global $cnx;
     $sql = "insert into user(alias,password,user_type,state,rut_client)";
-    $sql .= "values('$user','$password','$usertype','$status','$rut')";
+    $sql .= "values('$user','$password','$usertype','$state','$rut')";
 
     if($cnx->query($sql) === true){
         return 1;
@@ -13,11 +13,11 @@ function createUser($user,$password,$usertype,$status,$rut){
     }
     $cnx->close();
 }
-function createClient($rut,$name,$address,$phone,$codephone,$email){
+function createClient($rut,$name,$address,$phone,$mobile,$email){
     global $cnx;
     $fecha = date("Y-m-d H:i:s");
-    $sql = "insert into client(rut,name,address,phone,code,email,date)";
-    $sql .= "values('$rut','$name','$address',$phone,'$codephone','$email','$fecha')";
+    $sql = "insert into client(rut,name,address,phone,mobile,email,date)";
+    $sql .= "values('$rut','$name','$address',$phone,'$mobile','$email','$fecha')";
 
     if($cnx->query($sql) === true){
         return 1;
@@ -28,7 +28,7 @@ function createClient($rut,$name,$address,$phone,$codephone,$email){
 }
 function listClient(){
     global $cnx;
-    $sql = "select c.rut,c.name,c.address,c.code,c.phone,c.email,u.alias,u.password,b.dbname,c.date from admclient.client c ";
+    $sql = "select c.rut,c.name,c.address,c.mobile,c.phone,c.email,u.alias,u.password,b.dbname,c.date from admclient.client c ";
     $sql .= "inner join admclient.user u on u.rut_client = c.rut ";
     $sql .= "inner join admclient.baseclient b on b.rut_client = c.rut ";
     $sql .= "where u.state = 0";
@@ -42,7 +42,7 @@ function listClient(){
 }
 function listDisableClient(){
     global $cnx;
-    $sql = "select c.rut,c.name,c.address,c.code,c.phone,c.email,u.alias,u.password,b.dbname,c.date from admclient.client c ";
+    $sql = "select c.rut,c.name,c.address,c.mobile,c.phone,c.email,u.alias,u.password,b.dbname,c.date from admclient.client c ";
     $sql .= "inner join admclient.user u on u.rut_client = c.rut ";
     $sql .= "inner join admclient.baseclient b on b.rut_client = c.rut ";
     $sql .= "where u.state = 1";
@@ -80,7 +80,19 @@ function enableUser($rut){
     }
     $cnx->close();
 }
-function updateClient(){}
-function updateUser(){}
+function updateClient($rut,$name,$phone,$mobile,$address,$email){
+    global $cnx;
+    $sql = "update user set ";
+    $sql .= "state = 1 ";
+    $sql .= "where rut_client = '".$rut."'";
+    
+    if($cnx->query($sql) === true){
+        return 1;
+    }else{
+        return 0;        
+    }
+    $cnx->close();
+}
+function updateUser($rut,$user,$passwords){}
 
 ?>

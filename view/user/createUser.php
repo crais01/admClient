@@ -33,17 +33,14 @@
         </div>
         <div class="col-6">
             <div class="form-group">
-                <label for="codephone" class="h5">Tipo Telefono</label>
-                <select name="codephone" id="codephone" class="form-control">
-                    <option value="562">Telefono Fijo(+562)</option>
-                    <option value="569">Telefono Movil(+569)</option>
-                </select>
+                <label for="phone" class="h5">Numero Fijo</label>
+                <input type="text" id="phone" name="phone" class="form-control" maxlength="10" value="562"/>
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
-                <label for="phone" class="h5">Numero</label>
-                <input type="number" id="phone" name="phone" class="form-control" maxlength="7" placeholder="1324567"/>
+                <label for="phone" class="h5">Celular</label>
+                <input type="text" id="mobile" name="mobile" class="form-control" maxlength="11" value="569"/>
             </div>
         </div>
     </div><br>
@@ -72,7 +69,7 @@
         <div class="col-6">     
             <div class="form-group">
                 <label for="status" class="h5">Estado</label>
-                <select name="status" id="status" class="form-control">
+                <select name="state" id="state" class="form-control">
                     <option value="0">Activo</option>
                     <option value="1">Inactivo</option>
                 </select>
@@ -104,17 +101,17 @@ $(document).ready(function() {
         var userF = document.userform.user.value;
         var usertypeF = document.userform.usertype.value;
         var passwordF = document.userform.password.value;
-        var statusF = document.userform.status.value;
+        var stateF = document.userform.state.value;
         var nameF = document.userform.name.value;
-        var codephoneF = document.userform.codephone.value;
+        var mobileF = document.userform.mobile.value;
         var phoneF = document.userform.phone.value;
         var addressF = document.userform.address.value;
         var emailF = document.userform.email.value;
         var baseF = document.userform.base.value;
-
+alert(phoneF);
         document.getElementById('contianerResult').innerHTML='';
 
-		$("#contianerResult").load("../../controller/c_createUser.php",{rut:rutF, dv:dvF,user:userF,usertype:usertypeF,password:passwordF,status:statusF,name:nameF,codephone:codephoneF,phone:phoneF,address:addressF,email:emailF,base:baseF}, function(response, status, xhr) {
+		$("#contianerResult").load("../../controller/c_createUser.php",{rut:rutF, dv:dvF,user:userF,usertype:usertypeF,password:passwordF,state:stateF,name:nameF,mobile:mobileF,phone:phoneF,address:addressF,email:emailF,base:baseF}, function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Error!, algo ha sucedido: ";
 				$("#layout").html(msg + xhr.status + " " + xhr.statusText);

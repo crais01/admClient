@@ -10,13 +10,9 @@ if(is_null($listClient)){
     foreach($listClient as $row)
     {
     echo "<tr>";
-    echo "<td>".$row['rut']."</td>";
+    echo "<td><a name='aa' id='aa'>".$row['rut']."</a></td>";
     echo "<td>".$row['name']."</td>";
-    echo "<td>".$row['address']."</td>";
-    echo "<td>+".$row['code'].$row['phone']."</td>";
-    echo "<td>".$row['email']."</td>";
     echo "<td>".$row['alias']."</td>";
-    echo "<td>".$row['password']."</td>";
     echo "<td>".$row['dbname']."</td>";
     echo "<td>".$row['date']."</td>";
     echo "<td><input type='button' id='update' name='update' value='Actualizar' /></td>";
@@ -45,7 +41,7 @@ $(document).ready(function(){
    });
 });
 
-$(document).ready(function(){
+//$(document).ready(function(){
   $("#update").click(function(event) {
 
       var clientF = <?php echo json_encode($listClient); ?>;
@@ -57,5 +53,19 @@ $(document).ready(function(){
          }
       });
    });
-});
+//});
+
+//$(document).ready(function(){
+  $("#aa").click(function(event) {
+
+      var clientF = <?php echo json_encode($listClient); ?>;
+      //alert(clientF);
+      $("#container").load("../../view/user/cardUser.php",{client:clientF}, function(response, status, xhr) {
+         if (status == "error") {
+            var msg = "Error!, algo ha sucedido: ";
+            $("#container").html(msg + xhr.status + " " + xhr.statusText);
+         }
+      });
+   });
+//});
 </script>

@@ -3,7 +3,7 @@ $client = $_POST['client'];
 foreach($client as $row)
 {
 ?>
-<form id="userform" name="userform" action="<?=BASE_URL?>controller/c_createUser.php" method="post">
+<form id="userform" name="userform" method="post">
 <div class="container">
 <div id="contianerResult"></div>
     <div class="row">
@@ -30,13 +30,19 @@ foreach($client as $row)
         <div class="col-6">
             <div class="form-group">
                 <label for="emial" class="h5">Correo</label>
-                <input type="input" id="email" name="email" class="form-control" placeholder="correo@correo.cl" value="<?php echo $row['email']; ?>"/>
+                <input type="input" id="email" name="email" class="form-control" value="<?php echo $row['email']; ?>"/>
             </div>
         </div>
         <div class="col-6">
             <div class="form-group">
-                <label for="phone" class="h5">Numero</label>
-                <input type="number" id="phone" name="phone" class="form-control" maxlength="11" placeholder="1324567" value="<?php echo $row['code'].$row['phone']; ?>"/>
+                <label for="phone" class="h5">Numero Fijo</label>
+                <input type="number" id="phone" name="phone" class="form-control" maxlength="11" value="<?php echo $row['phone']; ?>"/>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="phone" class="h5">Celular</label>
+                <input type="number" id="mobile" name="mobile" class="form-control" maxlength="11" value="<?php echo $row['mobile']; ?>"/>
             </div>
         </div>
     </div><br>
@@ -81,12 +87,13 @@ $(document).ready(function() {
         var passwordF = document.userform.password.value;
         var nameF = document.userform.name.value;
         var phoneF = document.userform.phone.value;
+        var mobileF = document.userform.mobile.value;
         var addressF = document.userform.address.value;
         var emailF = document.userform.email.value;
 
         document.getElementById('contianerResult').innerHTML='';
 
-		$("#contianerResult").load("../../controller/c_createUser.php",{rut:rutF, dv:dvF,user:userF,usertype:usertypeF,password:passwordF,status:statusF,name:nameF,codephone:codephoneF,phone:phoneF,address:addressF,email:emailF,base:baseF}, function(response, status, xhr) {
+		$("#contianerResult").load("../../controller/c_updateUser.php",{rut:rutF,user:userF,password:passwordF,name:nameF,mobile:mobileF,phone:phoneF,address:addressF,email:emailF}, function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Error!, algo ha sucedido: ";
 				$("#layout").html(msg + xhr.status + " " + xhr.statusText);

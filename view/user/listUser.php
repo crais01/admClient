@@ -5,11 +5,7 @@
    <tr class="table-info">
     <th scope="col">RUT</th>
     <th scope="col">NOMBRE</th>
-    <th scope="col">DIRECCION</th>
-    <th scope="col">TELEFONO</th>
-    <th scope="col">CORREO</th>
     <th scope="col">USUARIO</th>
-    <th scope="col">CONTRASEÑA</th>
     <th scope="col">BASE DE DATOS</th>
     <th scope="col">FECHA CREACION</th>
     <th></th>
