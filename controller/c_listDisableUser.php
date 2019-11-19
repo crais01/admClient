@@ -2,7 +2,7 @@
 include('../model/m_user.php');
 error_reporting(E_ALL ^ E_NOTICE);
 
-$listClient = listClient();
+$listClient = listDisableClient();
 
 if(is_null($listClient)){
     echo "no existen registros";
@@ -19,8 +19,7 @@ if(is_null($listClient)){
     echo "<td>".$row['password']."</td>";
     echo "<td>".$row['dbname']."</td>";
     echo "<td>".$row['date']."</td>";
-    echo "<td><input type='button' id='update' name='update' value='Actualizar' /></td>";
-    echo "<td><input type='button' id='delete' name='delete' value='Eliminar' /></td>";
+    echo "<td><input type='button' id='enableUser' name='enableUser' value='activar' /></td>";
     echo "</tr>";
     echo "<input type='hidden' id='rut' name='rut' value='".$row['rut']."' />";
     }
@@ -31,26 +30,11 @@ if(is_null($listClient)){
 ?>
 <script>
 $(document).ready(function(){
-  $("#delete").click(function(event) {
+  $("#enableUser").click(function(event) {
 		
       var rutF = document.getElementById("rut").value;
-      
-     // alert(rutF);
-      $("#container").load("../../controller/c_deleteUser.php",{rut:rutF}, function(response, status, xhr) {
-         if (status == "error") {
-            var msg = "Error!, algo ha sucedido: ";
-            $("#container").html(msg + xhr.status + " " + xhr.statusText);
-         }
-      });
-   });
-});
-
-$(document).ready(function(){
-  $("#update").click(function(event) {
-
-      var clientF = <?php echo json_encode($listClient); ?>;
-      //alert(clientF);
-      $("#container").load("../../view/user/updateUser.php",{client:clientF}, function(response, status, xhr) {
+      alert(rutF);
+      $("#container").load("../../controller/c_enableUser.php",{rut:rutF}, function(response, status, xhr) {
          if (status == "error") {
             var msg = "Error!, algo ha sucedido: ";
             $("#container").html(msg + xhr.status + " " + xhr.statusText);

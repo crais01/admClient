@@ -26,6 +26,7 @@ create table baseclient(
     id_database int not null,
     rut_client varchar(11) not null, 
     dbname varchar(20)not null,
+    status int not null,
     primary key(id_database),
     foreign key(rut_client)references client(rut)
 )
