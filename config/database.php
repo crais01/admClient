@@ -1,7 +1,7 @@
 <?php
 $dbname = "admclient";
 $dbuser = "root";
-$dbpassword = "caschile";
+$dbpassword = "";
 $dbhost = "localhost";
 
 $cnx = new mysqli($dbhost, $dbuser, $dbpassword, $dbname);

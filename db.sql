@@ -1,3 +1,5 @@
+create database admClient;
+use admClient;
 create table client(
     rut varchar(11) not null,
     name varchar(40) not null,
@@ -26,4 +28,4 @@ create table baseclient(
     dbname varchar(20)not null,
     primary key(id_database),
     foreign key(rut_client)references client(rut)
-) /*fdsf*/
+)
