@@ -84,34 +84,14 @@ $(document).ready(function() {
         var addressF = document.userform.address.value;
         var emailF = document.userform.email.value;
 
-alert(passwordF);
         document.getElementById('contianerResult').innerHTML='';
 
-		/*$("#contianerResult").load("../../controller/c_createUser.php",{rut:rutF, dv:dvF,user:userF,usertype:usertypeF,password:passwordF,status:statusF,name:nameF,codephone:codephoneF,phone:phoneF,address:addressF,email:emailF,base:baseF}, function(response, status, xhr) {
+		$("#contianerResult").load("../../controller/c_createUser.php",{rut:rutF, dv:dvF,user:userF,usertype:usertypeF,password:passwordF,status:statusF,name:nameF,codephone:codephoneF,phone:phoneF,address:addressF,email:emailF,base:baseF}, function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Error!, algo ha sucedido: ";
 				$("#layout").html(msg + xhr.status + " " + xhr.statusText);
 			}
-		});*/
+		});
 	});
-});	
-
-function agregarCeros_onblur() {
-    var r = document.userform.rut.value;
-	var a = 9 - document.userform.rut.value.length;
-	for (var i=0;i< a;i++){
-         r = "0" + r;
-    }
-    document.userform.rut.value = r;
-	calcularDigitoVerificador()
-                          
-}
-function calcularDigitoVerificador(){
-	var srut = document.getElementById('rut').value;
-	if (srut!=""){
-		var M=0,S=1;var T = document.getElementById('rut').value;for(;T;T=Math.floor(T/10))
-		S=(S+T%10*(9-M++%6))%11;document.getElementById('dv').value=S?S-1:'k';
-	}
-			
-}
+});
 </script>
