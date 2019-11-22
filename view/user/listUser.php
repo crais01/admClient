@@ -12,7 +12,7 @@
     <th></th>
    </tr>
    </thead>
-   <tbody id="contianerResult">
+   <tbody id="contianerResultTable">
    </tbody>
    </table>
    
@@ -20,10 +20,10 @@
 <?php include('../footer.php'); ?>
 <script>
 $(document).ready(function() {
-		$("#contianerResult").load("../../controller/c_listUser.php", function(response, status, xhr) {
+		$("#contianerResultTable").load("../../controller/c_listUser.php", function(response, status, xhr) {
 			if (status == "error") {
 				var msg = "Error!, algo ha sucedido: ";
-				$("#contianerResult").html(msg + xhr.status + " " + xhr.statusText);
+				$("#contianerResultTable").html(msg + xhr.status + " " + xhr.statusText);
 			}
       });
       

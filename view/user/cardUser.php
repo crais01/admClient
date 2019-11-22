@@ -70,14 +70,7 @@ foreach($client as $row)
 }
 ?>
 <script>
-$(document).ready(function() {
-	$("#send").click(function(event) {//document.getElementById('container').innerHTML='';
-		$("#container").load("../../view/user/listUser.php", function(response, status, xhr) {
-			if (status == "error") {
-				var msg = "Error!, algo ha sucedido: ";
-				$("#layout").html(msg + xhr.status + " " + xhr.statusText);
-			}
-		});
-	});
+$("#send").click(function(event) {
+    window.location.href = "../../view/user/listUser.php";
 });
 </script>
