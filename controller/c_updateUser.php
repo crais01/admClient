@@ -10,8 +10,12 @@ $mobile = $_POST['mobile'];
 $address = $_POST['address'];
 $email = $_POST['email'];
 
-$updateClient = updateClient($rut,$user,$password,$name,$phone,$mobile,$address,$email);
+echo "";
+
+//$updateClient = updateClient($rut,$user,$password,$name,$phone,$mobile,$address,$email);
+$updateClient = updateClient($rut,$name,$phone,$mobile,$address,$email);
 $updateUser = updateUser($rut,$user,$password);
 
-
+echo $updateClient;
+echo "<br>".$updateUser;
 ?>
