@@ -45,19 +45,19 @@ create table client(
 
 create table profile(
     id_profile int auto_increment not null,
-    name_profile varchar(20)not nul,
+    name_profile varchar(20)not null,
     description text not null,
     date varchar(20),
     primary key(id_profile)
 );
 
-create table user(
+create table users(
     id_user int not null auto_increment,
     name_user varchar(20) not null, 
     first_names varchar(50)not null,
     last_names varchar(50)not null,
     password varchar(50) not null,
-    id_profile char(1) not null,
+    id_profile int not null,
     state char(1) not null,
     rut_user varchar(11) not null,
     primary key(id_user),
@@ -72,9 +72,12 @@ create table baseclient(
 );
 
 create table clientUserDB(
-    id_client int,
+    rut_client varchar(11),
     id_user int,
-    id_db int,    
+    id_db int,
+    FOREIGN KEY(rut_client)references client(rut),
+    FOREIGN KEY(id_user)references users(id_user),
+    FOREIGN KEY(id_db)references baseclient(id_database)
 );
 
 
